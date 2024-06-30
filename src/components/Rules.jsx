@@ -3,10 +3,13 @@ export const Rules = ({ open, onClose }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed z-10 inset-0">
+    <div className="fixed z-50 inset-0">
       <div className="flex items-center justify-center h-svh">
         <div className="fixed inset-0 bg-black opacity-30" onClick={onClose} />
-        <div style={{height: "90vh", marginTop: "5vh"}} className="overflow-auto bg-zinc-800  border-2 border-gray-500 shadow-lg shadow-black max-w-xl z-20 flex flex-col p-8 rounded-lg">
+        <div
+          style={{ height: "90vh", marginTop: "5vh" }}
+          className="overflow-auto bg-zinc-800  border-2 border-gray-500 shadow-lg shadow-black max-w-xl z-20 flex flex-col p-8 rounded-lg"
+        >
           <div className="flex gap-2 items-center justify-center">
             <div className="flex w-full justify-center items-center gap-2">
               <img className="w-8 h-8" src={logo} alt="logo" />

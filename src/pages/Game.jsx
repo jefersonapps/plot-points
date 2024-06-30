@@ -31,10 +31,7 @@ export const Game = () => {
 
   const handlePointClick = (index) => {
     // Verificar se o índice clicado corresponde à combinação dos valores dos dados e das moedas
-    if (
-      diceValue.length === 2 &&
-      coinValue.length === 2
-    ) {
+    if (diceValue.length === 2 && coinValue.length === 2) {
       const options = [
         { num1: num1, num2: num2 },
         { num1: num2, num2: num1 },
@@ -46,7 +43,7 @@ export const Game = () => {
       });
 
       if (validOption) {
-        console.log("é valida")
+        console.log("é valida");
         // Verificar se o ponto clicado já está ocupado por outro jogador
         if (
           points[index] !== null &&
@@ -85,7 +82,7 @@ export const Game = () => {
             quadrant.includes(index)
           );
 
-          console.log(playerPointsInQuadrant.length, numberOfPointsPerQuadrant )
+          console.log(playerPointsInQuadrant.length, numberOfPointsPerQuadrant);
 
           if (playerPointsInQuadrant.length < numberOfPointsPerQuadrant) {
             hasWon = false;
@@ -93,7 +90,7 @@ export const Game = () => {
           }
         }
 
-        console.log(hasWon, "won")
+        console.log(hasWon, "won");
 
         if (hasWon) {
           setWinner(currentPlayer);
@@ -135,7 +132,7 @@ export const Game = () => {
   const isBoardEmpty = points.every((point) => point === null);
 
   return (
-    <div>
+    <div className="h-svh">
       <Rules open={openRules} onClose={() => setOpenRules(false)} />
       <div>
         <Header />
@@ -195,17 +192,29 @@ export const Game = () => {
             open={openWinnerScreen}
             onClose={onClose}
           />
-          <div className="flex md:flex-col xs:flex-row xs:gap-8 px-3 gap-5 min-w-fit items-center justify-center bg-zinc-800 py-4 rounded-lg">
-            <Dice
-              diceValue={diceValue}
-              setDiceValue={setDiceValue}
-              disabled={!!points[focusedPoint]}
-            />
-            <Coin
-              coinValue={coinValue}
-              setCoinValue={setCoinValue}
-              disabled={!!points[focusedPoint]}
-            />
+          <div className="relative">
+            <div className="flex md:flex-col xs:flex-row xs:gap-8 px-3 gap-5 min-w-fit items-center justify-center bg-zinc-800 py-4 rounded-lg">
+              <Dice
+                diceValue={diceValue}
+                setDiceValue={setDiceValue}
+                disabled={!!points[focusedPoint]}
+              />
+              <Coin
+                coinValue={coinValue}
+                setCoinValue={setCoinValue}
+                disabled={!!points[focusedPoint]}
+              />
+            </div>
+            <div>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setOpenRules(true)}
+                  className="absolute -bottom-12 text-white w-fit"
+                >
+                  <HelpCircle size={40} />
+                </button>
+              </div>
+            </div>
           </div>
           <div className="relative md:ml-9">
             {/* Plano Cartesiano */}
@@ -282,11 +291,7 @@ export const Game = () => {
             </div>
           </div>
         </div>
-
       </div>
-        <button onClick={() => setOpenRules(true)} className="absolute z-50 right-4 bottom-4 text-white w-fit">
-          <HelpCircle size={40}/>
-        </button>
     </div>
   );
 };
