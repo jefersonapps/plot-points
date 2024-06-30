@@ -5,6 +5,7 @@ import { WinnerScreen } from "../components/WinnerScreen";
 import { Coin } from "../components/coin/Coin";
 import { Dice } from "../components/dice/Dice";
 
+import { HelpCircle } from "lucide-react";
 import clickSoundFile from "../assets/click.mp3";
 import { Header } from "../components/Header";
 import {
@@ -281,7 +282,11 @@ export const Game = () => {
             </div>
           </div>
         </div>
+
       </div>
+        <button onClick={() => setOpenRules(true)} className="absolute z-50 right-4 bottom-4 text-white w-fit">
+          <HelpCircle size={40}/>
+        </button>
     </div>
   );
 };
