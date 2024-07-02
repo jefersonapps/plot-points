@@ -9,7 +9,7 @@ export const Header = () => {
     <header className="bg-zinc-900 px-6 py-3 w-full justify-between items-center flex gap-8">
           <div className="flex gap-2 items-center">
             <img className="w-8 h-8" src={logo} alt="logo" />
-            <h1 className="md:text-2xl xs:text-lg font-bold text-white">Marca pontos</h1>
+            <h1 className="md:text-2xl xs:text-lg font-bold text-white">Marca Pontos</h1>
             <button 
             className="bg-violet-700 hover:bg-violet-800 transition-colors text-white font-bold py-2 px-4 md:ml-4 xs:ml-0 rounded focus:outline-none focus:shadow-outline w-fit"
             onClick={() => navigate('/simulador')}>
